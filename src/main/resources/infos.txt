@@ -1,0 +1,7 @@
+
+Bcrypt Hashing
+
+
+----------------------
+Theres nothing wrong to use autowired annotation, but is not recomended because we are using field injectin
+and spring recomends to use constructor injections.
