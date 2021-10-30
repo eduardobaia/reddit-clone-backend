@@ -5,3 +5,7 @@ Bcrypt Hashing
 ----------------------
 Theres nothing wrong to use autowired annotation, but is not recomended because we are using field injectin
 and spring recomends to use constructor injections.
+
+
+Add spriungblog.jsk
+its a file to store the keys. It can be nammed with any name, good practice is to put the projetjame started bu spring.
