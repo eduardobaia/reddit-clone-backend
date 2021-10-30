@@ -1,5 +1,6 @@
 package com.reddit.redditclone.secutiry;
 
+
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +35,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
        String jwt=  getJwtFromRequest(request);
 
-       jwtProvider.validateToken(jwt);
+    //   jwtProvider.validateToken(jwt);
 
         if (StringUtils.hasText(jwt) && jwtProvider.validateToken(jwt)) {
             String username = jwtProvider.getUsernameFromJwt(jwt);
