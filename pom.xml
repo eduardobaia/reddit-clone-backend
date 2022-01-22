@@ -42,11 +42,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.projectlombok</groupId>-->
-<!--			<artifactId>lombok</artifactId>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
+
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -110,7 +107,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 				<configuration>
+
 					<excludes>
 <!--						<exclude>-->
 <!--							<groupId>org.projectlombok</groupId>-->
@@ -137,7 +136,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.8</version>
+							<version>1.18.22</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
