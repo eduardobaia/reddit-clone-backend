@@ -44,4 +44,17 @@ public class SubredditService {
                 .orElseThrow(() -> new SpringRedditException("No subreddit found with ID - " + id));
         return subredditMapper.mapSubredditToDto(subreddit);
     }
+
+    private SubredditDto mapToDto(Subreddit subreddit){
+        return SubredditDto.builder().name(subreddit.getName())
+                .id(subreddit.getId())
+                .numberOfPosts(subreddit.getPosts().size())
+                .build();
+    }
+
+    private Subreddit mapSubredditDto (SubredditDto subredditDto){
+        return Subreddit.builder().name(subredditDto.getName())
+                .description(subredditDto.getDescription())
+                .build();
+    }
 }

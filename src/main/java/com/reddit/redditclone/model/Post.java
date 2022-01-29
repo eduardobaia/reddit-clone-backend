@@ -38,6 +38,12 @@ public class Post {
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Subreddit subreddit;
 
+    @Nullable
+    public String getDescription() {
+        return description;
+    }
 
-
+    public void setDescription(@Nullable String description) {
+        this.description = description;
+    }
 }

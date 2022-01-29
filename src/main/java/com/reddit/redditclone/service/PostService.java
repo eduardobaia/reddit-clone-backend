@@ -7,11 +7,13 @@ import com.reddit.redditclone.exceptions.SubredditNotFoundException;
 import com.reddit.redditclone.mapper.PostMapper;
 import com.reddit.redditclone.model.Post;
 import com.reddit.redditclone.model.Subreddit;
+import com.reddit.redditclone.model.User;
 import com.reddit.redditclone.repository.PostRepository;
 import com.reddit.redditclone.repository.SubredditRepository;
 import com.reddit.redditclone.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

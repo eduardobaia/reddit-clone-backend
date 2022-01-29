@@ -37,4 +37,6 @@ public class SubredditController {
                 .status(HttpStatus.OK)
                 .body(subredditService.getSubreddit(id));
     }
+
+
 }
