@@ -28,9 +28,9 @@ public interface PostMapper {
     Post map(PostRequest postRequest, Subreddit subreddit, User user);
 
     @Mapping(target = "id", source = "postId")
-    @Mapping(target = "postName", source = "postName")
-    @Mapping(target = "description", source = "description")
-    @Mapping(target = "url", source = "url")
+  //  @Mapping(target = "postName", source = "postName")
+ //   @Mapping(target = "description", source = "description")
+//    @Mapping(target = "url", source = "url")
     @Mapping(target = "subredditName", source = "subreddit.name")
     @Mapping(target = "userName", source = "user.username")
  //   @Mapping(target = "commentCount", expression = "java(commentCount(post))")
