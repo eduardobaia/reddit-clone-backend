@@ -2,6 +2,7 @@ package com.reddit.redditclone.service;
 
 import com.reddit.redditclone.dto.AuthenticationResponse;
 import com.reddit.redditclone.dto.LoginRequest;
+import com.reddit.redditclone.dto.RefreshTokenRequest;
 import com.reddit.redditclone.dto.RegisterRequest;
 import com.reddit.redditclone.exceptions.SpringRedditException;
 import com.reddit.redditclone.model.NotificationEmail;
@@ -99,6 +100,16 @@ public class AuthService {
 
         SecurityContextHolder.getContext().setAuthentication(authenticate);
        String token = jwtProvider.generateToken(authenticate);
-       return new AuthenticationResponse(token, loginRequest.getUsername());
+   //    return new AuthenticationResponse(token, loginRequest.getUsername());
+        return AuthenticationResponse.builder()
+                .authenticationToken(token)
+                .refreshToken("")
+                .expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMillis()))
+                .username(loginRequest.getUsername())
+                .build();
+    }
+
+    public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
+        return null;
     }
 }

@@ -13,12 +13,16 @@ import java.security.cert.CertificateException;
 
 
 import static io.jsonwebtoken.Jwts.parser;
+import static java.util.Date.from;
+
 import org.springframework.security.core.userdetails.User;
 
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
+import java.time.Instant;
 
 @Service
 public class JwtProvider {
@@ -45,7 +49,9 @@ public class JwtProvider {
       User principal =   (User) authentication.getPrincipal();
       return Jwts.builder()
               .setSubject(principal.getUsername())
+              .setIssuedAt(from(Instant.now()))
               .signWith(getPrivateKey())
+              .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
               .compact();
     }
 
@@ -81,4 +87,11 @@ public class JwtProvider {
         return claims.getSubject();
     }
 
+    public Long getJwtExpirationInMillis() {
+        return jwtExpirationInMillis;
+    }
+
+    public void setJwtExpirationInMillis(Long jwtExpirationInMillis) {
+        this.jwtExpirationInMillis = jwtExpirationInMillis;
+    }
 }
