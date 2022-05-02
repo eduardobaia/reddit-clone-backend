@@ -17,7 +17,7 @@ import static java.util.Date.from;
 
 import org.springframework.security.core.userdetails.User;
 
-import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+//import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
