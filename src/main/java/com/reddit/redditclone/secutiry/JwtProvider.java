@@ -17,6 +17,7 @@ import static java.util.Date.from;
 
 import org.springframework.security.core.userdetails.User;
 
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -93,5 +94,25 @@ public class JwtProvider {
 
     public void setJwtExpirationInMillis(Long jwtExpirationInMillis) {
         this.jwtExpirationInMillis = jwtExpirationInMillis;
+    }
+
+    public String generateTokenWithUserName(String username) {
+//        JwtClaimsSet claims = JwtClaimsSet.builder()
+//                .issuer("self")
+//                .issuedAt(Instant.now())
+//                .expiresAt(Instant.now().plusMillis(jwtExpirationInMillis))
+//                .subject(username)
+//                .claim("scope", "ROLE_USER")
+//                .build();
+//
+//        return this.jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(from(Instant.now()))
+                .signWith(getPrivateKey())
+                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .compact();
+
     }
 }
