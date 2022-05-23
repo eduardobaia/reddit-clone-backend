@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 
@@ -24,6 +25,7 @@ public class AuthController {
 
 
     @PostMapping("/signup")
+    @CrossOrigin(origins = "http://localhost:19006")
     public  ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest){
         authService.signup(registerRequest);
         return new ResponseEntity<>("User Registration Sucessful", HttpStatus.OK);
@@ -37,6 +39,7 @@ public class AuthController {
 
 
      @PostMapping("/login")
+     @CrossOrigin(origins = "http://localhost:19006")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
          return authService.login(loginRequest);
     }
