@@ -25,7 +25,7 @@ public class AuthController {
 
 
     @PostMapping("/signup")
-    @CrossOrigin(origins = "http://localhost:19006")
+   // @CrossOrigin(origins = "http://localhost:19006")
     public  ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest){
         authService.signup(registerRequest);
         return new ResponseEntity<>("User Registration Sucessful", HttpStatus.OK);
@@ -39,7 +39,7 @@ public class AuthController {
 
 
      @PostMapping("/login")
-     @CrossOrigin(origins = "http://localhost:19006")
+    // @CrossOrigin(origins = "http://localhost:19006")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
          return authService.login(loginRequest);
     }
@@ -50,6 +50,7 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
+    //@CrossOrigin(origins = "http://localhost:19006")
     public ResponseEntity<String>  logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
         return ResponseEntity.status(HttpStatus.OK).body("Refresh Token Deleted Sucessfully");
